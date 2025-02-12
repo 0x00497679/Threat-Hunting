@@ -1,0 +1,51 @@
+resourcemanager.projects.delete
+    - Permanently deletes an entire GCP project and all associated resources
+
+resourcemanager.projects.setIamPolicy
+    - Updates IAM policies at the project level, potentially granting or revoking broad privileges
+
+resourcemanager.folders.delete
+    - Deletes a GCP folder (can be devastating in an organization hierarchy)
+
+iam.serviceAccounts.delete
+    - Removes a service account, which may break critical automation or remove essential credentials
+
+iam.serviceAccounts.keys.delete
+    - Deletes a service account key, potentially locking out access or disrupting services
+
+iam.roles.delete (or iam.roles.undelete)
+    - Removes or restores custom IAM roles (can break or enable certain privileges if misused)
+
+compute.instances.delete
+    - Terminates and removes Compute Engine VM instances
+
+compute.disks.delete
+    - Deletes persistent disks; can result in permanent data loss if not backed up
+
+storage.buckets.delete
+    - Deletes an entire Cloud Storage bucket, removing all objects inside
+
+storage.objects.delete
+    - Removes objects from a Cloud Storage bucket (potential data destruction)
+
+cloudkms.cryptoKeysVersions.destroy
+    - Destroys a KMS key version, making data encrypted with that key version inaccessible
+
+cloudkms.cryptoKeysVersions.disable
+    - Disables a key version, potentially blocking access to encrypted data
+
+logging.sinks.delete
+    - Removes logging sinks (like export sinks), which can hide malicious activity by stopping log exports
+
+dns.managedZones.delete
+    - Deletes a Cloud DNS zone, disrupting DNS resolution for critical services
+
+bigquery.datasets.delete
+    - Deletes an entire BigQuery dataset, removing all tables/data
+
+spanner.instances.delete
+    - Removes a Cloud Spanner instance (and its databases)
+
+sql.instances.delete
+    - Deletes a Cloud SQL instance, causing data loss if no backups are available
+

@@ -1,0 +1,82 @@
+# Resource & Project Management
+resourcemanager.projects.list
+    - Lists accessible projects in an organization
+resourcemanager.projects.get
+    - Retrieves metadata for a specific project (name, project number, lifecycle state)
+
+resourcemanager.folders.list
+    - Lists folders in the organization
+resourcemanager.folders.getIamPolicy
+    - Shows IAM policy bindings on a folder
+
+# Compute Engine
+compute.instances.list
+    - Enumerates VM instances, including instance names, zones, IPs
+compute.disks.list
+    - Shows persistent disks, sizes, and attached instances
+compute.firewalls.list
+    - Lists firewall rules for a project (ingress/egress rules)
+compute.networks.list
+    - Lists VPC networks and subnets
+
+# Cloud Storage
+storage.buckets.list
+    - Lists buckets within a project
+storage.buckets.getIamPolicy
+    - Shows bucket-level IAM policy
+storage.objects.list
+    - Enumerates objects within a specified bucket
+
+# IAM & Service Accounts
+iam.serviceAccounts.list
+    - Lists service accounts under a project
+iam.serviceAccounts.keys.list
+    - Lists keys for a specific service account (if permissions allow)
+resourcemanager.projects.getIamPolicy
+    - Retrieves the project-level IAM policy
+
+# Cloud KMS
+cloudkms.keyRings.list
+    - Lists KeyRings in a project/region
+cloudkms.cryptoKeys.list
+    - Shows crypto keys in a key ring
+cloudkms.cryptoKeyVersions.list
+    - Enumerates key versions
+
+# Logging & Monitoring
+logging.sinks.list
+    - Shows log sinks configured (where logs are being exported)
+logging.logs.list
+    - Enumerates log names within a project
+
+monitoring.metricDescriptors.list
+    - Lists available metrics for resources
+monitoring.monitoredResourceDescriptors.list
+    - Shows supported monitored resource types (e.g., GCE VM, Cloud SQL, etc.)
+
+# DNS
+dns.managedZones.list
+    - Lists Cloud DNS managed zones
+dns.resourceRecordSets.list
+    - Retrieves DNS record sets within a managed zone
+
+# BigQuery
+bigquery.datasets.list
+    - Lists datasets in a project
+bigquery.tables.list
+    - Lists tables in a dataset
+bigquery.tables.get
+    - Retrieves table metadata, including schema
+
+# gcloud CLI Examples (Enumeration)
+gcloud projects list
+    - Lists projects the user has access to
+gcloud compute instances list
+    - Enumerates Compute Engine instances
+gcloud iam service-accounts list
+    - Shows service accounts in a project
+gcloud storage buckets list
+    - Lists GCS buckets
+gcloud services list
+    - Lists enabled APIs/services in a project
+
