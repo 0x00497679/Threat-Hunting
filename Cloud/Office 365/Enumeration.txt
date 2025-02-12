@@ -1,0 +1,50 @@
+# Microsoft Graph / Azure AD Enumeration
+Get-MgUser (Graph API: GET /users)
+  - Lists all users in the tenant (names, UPNs, IDs)
+Get-MgGroup (Graph API: GET /groups)
+  - Lists M365 groups, security groups, and distribution lists
+Get-MgServicePrincipal (Graph API: GET /servicePrincipals)
+  - Reveals service principals (registered apps, permissions)
+Get-MgDevice (Graph API: GET /devices)
+  - Lists devices registered in Azure AD (e.g., Windows 10 endpoints, phones)
+
+# Exchange Online
+Get-Mailbox
+  - Enumerates mailboxes (user, shared, resource)
+Get-MailboxPermission
+  - Shows who has access to which mailboxes
+Get-DistributionGroup
+  - Lists all distribution groups
+Get-DistributionGroupMember
+  - Lists members within a distribution group
+Get-MobileDevice
+  - Retrieves mobile devices connected via Exchange ActiveSync
+
+# SharePoint Online
+Get-SPOSite
+  - Lists all SharePoint site collections, including OneDrive sites
+Get-SPOUser -Site https://yourtenant.sharepoint.com/sites/SiteName
+  - Enumerates users for a specific site
+Get-SPOList -Site https://yourtenant.sharepoint.com/sites/SiteName
+  - Lists all document libraries and lists in the specified site
+
+# Teams
+Get-MgTeam (Graph API: GET /teams)
+  - Enumerates Teams in the tenant (if you have sufficient permissions)
+Get-MgTeamChannel (Graph API: GET /teams/{teamId}/channels)
+  - Lists channels within a given Team
+
+# Licensing
+Get-MgSubscribedSku (Graph API: GET /subscribedSkus)
+  - Shows available license SKUs and how many are assigned
+Get-MgUserLicenseDetail (Graph API: GET /users/{id}/licenseDetails)
+  - Details about assigned licenses for a specific user
+
+# Security & Compliance
+Search-UnifiedAuditLog
+  - Retrieves audit logs if you have appropriate permissions
+Get-RetentionCompliancePolicy
+  - Lists retention policies that define data retention/deletion
+Get-ComplianceTag
+  - Enumerates sensitivity labels or data classification tags
+

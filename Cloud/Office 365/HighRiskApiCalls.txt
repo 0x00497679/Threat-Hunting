@@ -1,0 +1,60 @@
+# Exchange Online Mailboxes
+Remove-Mailbox
+  - Permanently deletes a mailbox (and potentially its data if not retained)
+Disable-Mailbox
+  - Disconnects the mailbox from a user account, risking data loss if not reconnected
+
+Set-Mailbox -ForwardingAddress / -ForwardingSmtpAddress
+  - Could silently forward mail to an external address for data exfiltration
+
+Remove-MailboxPermission
+  - Revokes permission from legitimate admins or service accounts
+
+# Microsoft 365 User/Group Management (Graph or PowerShell)
+Remove-MgUser (Graph API: DELETE /users/{id})
+  - Deletes a user account, potentially losing mailbox access and data
+Remove-MgGroup (Graph API: DELETE /groups/{id})
+  - Deletes an M365 group or Microsoft Team, removing associated resources
+
+Revoke-MgUserDelegatedPermissionGrant
+  - Revokes delegated permissions; can break legitimate services or hamper detection
+
+Set-MgUser -AccountEnabled $false
+  - Disables a user account—may be used maliciously to lock out legitimate admins
+
+# SharePoint Online and OneDrive
+Remove-SPOSite
+  - Deletes a SharePoint site collection (including OneDrive for Business sites)
+Remove-SPOUser
+  - Removes a user from a site, potentially locking out legitimate owners
+Remove-SPOList
+  - Deletes a SharePoint list (and all data within it)
+
+# Teams
+Remove-MgTeam (Graph API: DELETE /teams/{teamId})
+  - Deletes an entire Microsoft Team (channels, messages, files, etc.)
+Remove-MgChannel (Graph API: DELETE /teams/{teamId}/channels/{channelId})
+  - Deletes a channel, losing associated conversation history and files
+
+# Security/Compliance & Auditing
+Set-OrganizationConfig -AuditDisabled $true
+  - Could disable auditing, hiding future malicious actions (Note: actual parameter may vary)
+Remove-ComplianceSearch
+  - Deletes existing eDiscovery searches, potentially removing evidence
+Remove-RetentionCompliancePolicy / Remove-ComplianceTag
+  - Eliminates or weakens retention policies, risking data spoliation
+
+# Service Principal / App Registrations
+Remove-MgServicePrincipal
+  - Deletes a service principal used by custom apps or integrations
+Remove-MgApplication
+  - Deletes an Azure AD application registration, impacting app-based authentication
+
+# Azure AD Role & Directory Settings (Graph API or AAD PowerShell)
+Remove-MgDirectoryRoleMember
+  - Removes members from privileged directory roles (like Global Admin)
+Remove-MgDirectoryRole
+  - Potentially removes an entire role (less common, but could break admin flows)
+Set-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions
+  - Could loosen or tighten who can perform privileged actions in the entire tenant
+
