@@ -1,0 +1,4 @@
+GeoLite2 ASN CIDR Collapser
+
+A short Python script that downloads (or reuses a local copy of) MaxMind’s GeoLite2-ASN CSV database, filters AS Organizations starting 
+with your input string, and outputs collapsed CIDR ranges in a single combined list.
