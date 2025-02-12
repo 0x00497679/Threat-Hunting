@@ -1,0 +1,36 @@
+CreatePolicy – Creates a new IAM policy with specified permissions
+PutUserPolicy – Attaches or updates an inline policy for a specific IAM user
+AttachUserPolicy – Attaches a managed policy to an IAM user
+AttachRolePolicy – Attaches a managed policy to an IAM role
+UpdateAssumeRolePolicy – Modifies the trust relationship of an IAM role
+CreateUser – Creates a new IAM user
+CreateAccessKey – Generates new access keys for an IAM user
+CreateLoginProfile – Sets a console password for an IAM user
+DeleteUser – Removes an IAM user
+DeleteRole – Removes an IAM role
+DeactivateMFADevice – Disables multi-factor authentication on an IAM user
+StopLogging – Disables CloudTrail logging
+DeleteTrail – Deletes a CloudTrail trail
+DeleteBucket – Removes an S3 bucket
+DeleteObject – Deletes an object from S3
+PutBucketPolicy – Updates or creates a policy for an S3 bucket
+PutPublicAccessBlock – Configures or changes the public access settings of an S3 bucket
+TerminateInstances – Terminates one or more running EC2 instances
+ModifyInstanceAttribute – Changes configuration details of an EC2 instance
+RevokeSecurityGroupIngress – Removes inbound rules from a security group
+CreateKeyPair – Creates a new SSH key pair for EC2
+ImportKeyPair – Imports a public SSH key for use with EC2
+DeleteDBInstance – Deletes an RDS database instance
+ModifyDBInstance – Modifies the settings or configuration of an RDS instance
+DownloadDBLogFilePortion – Retrieves portions of an RDS log file
+DisableKey – Disables a KMS key, making encrypted data inaccessible
+ScheduleKeyDeletion – Schedules a KMS key for permanent deletion
+CreateKey – Creates a new KMS key
+ChangeResourceRecordSets – Modifies DNS records in Route 53
+DeleteHostedZone – Deletes an entire DNS hosted zone
+CreateAccount – Creates a new AWS account within an organization
+RemoveAccountFromOrganization – Removes an existing account from the organization
+CloseAccount – Closes an AWS account in the organization
+UpdateBillingDetails – Updates billing information for an AWS account
+PurchaseReservedInstances – Purchases reserved capacity for EC2 instances
+

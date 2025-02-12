@@ -1,0 +1,44 @@
+DescribeRegions – Lists all AWS regions available to the account
+DescribeAvailabilityZones – Shows the availability zones within a region
+DescribeInstances – Retrieves details (IDs, states, IPs) of EC2 instances
+DescribeVpcs – Enumerates VPCs (Virtual Private Clouds)
+DescribeSubnets – Lists details about subnets within VPCs
+DescribeSecurityGroups – Fetches security group configurations (rules, group names, etc.)
+DescribeKeyPairs – Shows existing EC2 key pairs
+DescribeVolumes – Provides info on EBS volumes
+DescribeSnapshots – Lists EBS snapshots
+DescribeImages – Enumerates available AMIs in your account
+
+ListBuckets – Lists all S3 buckets in the account
+ListObjects – Retrieves object keys within a given S3 bucket
+GetBucketPolicy – Reads the policy attached to an S3 bucket
+GetBucketAcl – Shows the ACL (Access Control List) for an S3 bucket
+
+ListUsers – Lists IAM users in the account
+ListRoles – Lists IAM roles
+ListPolicies – Enumerates managed IAM policies
+GetUser – Returns details for a specified IAM user
+GetRole – Returns details for a specified IAM role
+GetPolicy – Retrieves metadata for a specified IAM policy
+
+DescribeDBInstances – Lists RDS instances (engine type, endpoints, etc.)
+DescribeDBSnapshots – Enumerates database snapshots
+DescribeDBClusters – Shows Aurora or multi-instance cluster details
+
+DescribeStacks (CloudFormation) – Lists CloudFormation stacks and resources
+DescribeStackResources – Enumerates resources within a particular stack
+
+DescribeTrails (CloudTrail) – Lists CloudTrail trails for logging and auditing
+DescribeLogGroups (CloudWatch Logs) – Enumerates log groups
+DescribeLogStreams (CloudWatch Logs) – Fetches log streams within a group
+DescribeAlarms (CloudWatch) – Lists the CloudWatch alarms configured
+
+ListKeys (KMS) – Shows the AWS KMS keys in the account
+DescribeKey (KMS) – Provides metadata about a specific KMS key
+
+ListHostedZones (Route 53) – Enumerates hosted DNS zones
+ListResourceRecordSets (Route 53) – Lists DNS records within a hosted zone
+
+DescribeOrganization (AWS Organizations) – Shows details about the organization (if applicable)
+ListAccounts (AWS Organizations) – Enumerates all accounts within the organization
+
