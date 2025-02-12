@@ -1,0 +1,95 @@
+# ARM Resource Management
+Microsoft.Resources/subscriptions/read
+    - Reads subscription details, including subscription IDs and metadata
+
+Microsoft.Resources/subscriptions/resourceGroups/read
+    - Lists resource groups in a subscription
+
+Microsoft.Resources/resources/read
+    - Enumerates all resources in a subscription or resource group
+
+# Azure Compute
+Microsoft.Compute/virtualMachines/read
+    - Lists all VM details (names, status, size, IP addresses)
+
+Microsoft.Compute/disks/read
+    - Shows managed disk details (sizes, attached VMs, etc.)
+
+Microsoft.Compute/images/read
+    - Lists custom images stored in Azure
+
+# Azure Networking
+Microsoft.Network/virtualNetworks/read
+    - Lists all VNets, subnets, and related settings
+
+Microsoft.Network/networkInterfaces/read
+    - Enumerates network interfaces attached to VMs
+
+Microsoft.Network/networkSecurityGroups/read
+    - Lists NSGs (firewall rules, inbound/outbound rules)
+
+# Azure Storage
+Microsoft.Storage/storageAccounts/read
+    - Lists storage accounts (names, endpoints, locations)
+
+Microsoft.Storage/storageAccounts/listKeys
+    - Retrieves the access keys for a storage account (requires proper permissions)
+
+Microsoft.Storage/storageAccounts/blobServices/containers/read
+    - Enumerates storage containers in a given storage account
+
+# Azure Key Vault
+Microsoft.KeyVault/vaults/read
+    - Lists Key Vaults in the subscription
+
+Microsoft.KeyVault/vaults/secrets/read
+    - Retrieves a list of secrets (names, versions) in a vault (if access allowed)
+
+# Azure Active Directory (Graph API or Azure AD PowerShell/CLI)
+GET /users
+    - Lists Azure AD users
+GET /groups
+    - Lists Azure AD groups
+GET /servicePrincipals
+    - Enumerates service principals (application identities)
+GET /directoryRoles
+    - Lists directory roles (Azure AD roles like Global Admin)
+
+# Role & Policy Enumeration
+Microsoft.Authorization/roleAssignments/read
+    - Shows which roles are assigned to which principal (users/groups/service principals)
+
+Microsoft.Authorization/roleDefinitions/read
+    - Lists built-in and custom role definitions
+
+Microsoft.PolicyInsights/policyStates/read
+    - Shows policy compliance states
+
+# Monitoring / Logging
+Microsoft.Insights/diagnosticSettings/read
+    - Lists diagnostic settings for resources (where logs/metrics are sent)
+
+Microsoft.OperationalInsights/workspaces/read
+    - Enumerates Log Analytics workspaces
+
+Microsoft.Security/…
+    - Various calls to read security alerts, compliance data from Security Center
+
+# Azure CLI Examples (for enumeration):
+az account show
+    - Displays details about the current subscription/account
+az group list
+    - Lists resource groups
+az resource list
+    - Enumerates resources in the subscription
+az vm list
+    - Lists all VMs (names, resource groups, statuses)
+az storage account list
+    - Lists storage accounts
+az ad user list
+    - Enumerates Azure AD users
+az ad sp list
+    - Lists service principals
+az ad group list
+    - Shows groups in Azure AD
+

@@ -1,0 +1,57 @@
+Microsoft.Resources/subscriptions/resourceGroups/delete
+    - Deletes an entire resource group and all resources within it
+
+Microsoft.Authorization/roleAssignments/write
+    - Creates or updates role assignments, potentially granting elevated privileges
+
+Microsoft.Authorization/roleAssignments/delete
+    - Removes existing role assignments, potentially blocking legitimate access
+
+Microsoft.Authorization/roleDefinitions/write
+    - Creates or modifies custom role definitions, which could grant broad privileges
+
+Microsoft.KeyVault/vaults/delete
+    - Deletes an entire Key Vault, risking loss of critical secrets and certificates
+
+Microsoft.KeyVault/vaults/purge
+    - Permanently purges a soft-deleted Key Vault, making recovery impossible
+
+Microsoft.KeyVault/vaults/write (Setting access policies)
+    - Updates Key Vault access policies; can grant unauthorized access to secrets
+
+Microsoft.KeyVault/vaults/accessPolicies/write
+    - Directly modifies access policies for Key Vault (similar risk as above)
+
+Microsoft.Storage/storageAccounts/delete
+    - Deletes a storage account and all associated data (blobs, files, queues, tables)
+
+Microsoft.Storage/storageAccounts/regenerateKey
+    - Regenerates storage account keys, which can lock out existing services or grant attacker access
+
+Microsoft.Compute/virtualMachines/delete
+    - Terminates VMs, causing disruption and potential data loss (if not backed up)
+
+Microsoft.Compute/disks/delete
+    - Removes managed disks; permanent data loss without backups
+
+Microsoft.Network/virtualNetworks/delete
+    - Deletes VNet, potentially knocking out entire subnets and connected resources
+
+Microsoft.Network/networkSecurityGroups/delete
+    - Removes network security groups, potentially exposing resources or causing connectivity issues
+
+Microsoft.Insights/diagnosticSettings/delete
+    - Disables or deletes diagnostic/monitoring settings, reducing visibility into malicious actions
+
+Azure Active Directory (AAD) calls (via Microsoft Graph or Azure AD Graph):
+    - DELETE /users/{id}
+    - DELETE /groups/{id}
+    - POST/DELETE /servicePrincipals
+    - DELETE /applications/{id}
+      (These can remove user identities, groups, or app registrations, causing account lockouts or removing logging)
+
+Azure Policy and Security Center:
+    - Microsoft.PolicyInsights (delete or disable policies)
+    - Disabling Azure Security Center or removing policy assignments
+      (Hinders visibility and governance)
+
