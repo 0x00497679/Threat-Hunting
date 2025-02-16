@@ -4,7 +4,7 @@ import base64
 import re
 import math
 from collections import defaultdict
-from scapy.all import rdpcap, DNS, DNSQR, UDP, TCP, IP
+from scapy.all import rdpcap, DNS, DNSQR, UDP, TCP, IP, IPv6
 
 ############################
 # CONFIGURATION & CONSTANTS
@@ -96,6 +96,18 @@ def get_base_domain(qname: str) -> str:
     else:
         return qname.strip('.')
 
+def get_src_dst_ip(pkt) -> (str, str):
+    """
+    Retrieve source and destination IP addresses from a packet.
+    Checks for IPv4 first; if not present, then IPv6.
+    """
+    if pkt.haslayer(IP):
+        return pkt[IP].src, pkt[IP].dst
+    elif pkt.haslayer(IPv6):
+        return pkt[IPv6].src, pkt[IPv6].dst
+    else:
+        return "N/A", "N/A"
+
 def inspect_dns_qname(qname: str, src_ip: str, partial_cache: dict):
     """
     Check a single DNS query name for suspicious indicators:
@@ -103,9 +115,9 @@ def inspect_dns_qname(qname: str, src_ip: str, partial_cache: dict):
       - Suspicious subdomain lengths.
       - High entropy labels.
       - Possible embedded HTTP keywords (plain or base64).
-      - Partial-chaining detection for splitted HTTP keywords.
+      - Partial-chaining detection for split HTTP keywords.
     
-    partial_cache is a dict that stores rolling subdomain pieces for each src_ip
+    partial_cache is a dict that stores rolling QNAME pieces for each src_ip
     to detect if keywords are split across multiple queries.
     
     Returns (is_suspicious, reasons_list).
@@ -194,9 +206,8 @@ def detect_http_over_dns(pcap_file):
                 except AttributeError:
                     continue
 
-                # If there's an IP layer, get src/dst
-                src_ip = pkt[IP].src if pkt.haslayer(IP) else "N/A"
-                dst_ip = pkt[IP].dst if pkt.haslayer(IP) else "N/A"
+                # Retrieve source/destination IP addresses (IPv4 or IPv6)
+                src_ip, dst_ip = get_src_dst_ip(pkt)
 
                 base_dom = get_base_domain(qname)
 
